@@ -115,17 +115,19 @@ Architecture styles define how different components of an application programmin
   <img src="images/api-architecture-styles.png" style="width: 640px">
 </p>
 
-- SOAP: 
+- SOAP (Simple Object Access Protocol): 
 
-  Mature, comprehensive, XML-based
+  Mature, comprehensive, XML-based (meaning, encodes data in XML format)
   
   Best for enterprise applications 
 
-- RESTful: 
+- RESTful (Representational State Transfer): 
 
   Popular, easy-to-implement, HTTP methods 
 
   Ideal for web services 
+
+  Supports data transfer in different formats (XML, HTML, plain text, JSON etc.)
 
 - GraphQL: 
 
@@ -133,7 +135,7 @@ Architecture styles define how different components of an application programmin
 
   Reduces network overhead, faster responses 
 
-- gRPC: 
+- gRPC (Remote Procedure Call): 
 
   Modern, high-performance, Protocol Buffers 
 
@@ -151,6 +153,17 @@ Architecture styles define how different components of an application programmin
 
   Notifies systems when events occur
 
+### SOAP vs REST vs GraphQL vs RPC
+
+The diagram below illustrates the API timeline and API styles comparison.
+
+Over time, different API architectural styles are released. Each of them has its own patterns of standardizing data exchange. 
+
+You can check out the use cases of each style in the diagram.
+
+<p>
+  <img src="images/SOAP vs REST vs GraphQL vs RPC.jpeg" />
+</p>
 
 ### REST API vs. GraphQL
 
@@ -185,7 +198,7 @@ Neither API approach is a silver bullet. Carefully evaluating requirements and t
 
 ### How does gRPC work?
 
-RPC (Remote Procedure Call) is called “**remote**” because it enables communications between remote services when services are deployed to different servers under microservice architecture. From the user’s point of view, it acts like a local function call.
+RPC (Remote Procedure Call, initially created by Google) is called “**remote**” because it enables communications between remote services when services are deployed to different servers under microservice architecture. From the user’s point of view, it acts like a local function call.
 
 The diagram below illustrates the overall data flow for **gRPC**.
 
@@ -207,6 +220,10 @@ Steps 12 - 14: The order service receives the packets, decodes them, and sends t
 
 ### What is a webhook?
 
+**Webhook:** Webhooks are automated messages sent from apps when something happens. They have a message—or payload—and are sent to a unique URL. Webhooks are almost always faster than polling, and require less work on the developer end. 
+
+**Polling:** A term used to describe the process whereby one program sends regular messages to another program in order to check whether the second program has data for it or to check on the state of the second program.
+
 The diagram below shows a comparison between polling and Webhook. 
 
 <p>
@@ -217,7 +234,7 @@ Assume we run an eCommerce website. The clients send orders to the order service
 
 There are two ways to handle communications with the external PSP. 
 
-**1. Short polling** 
+**1. Short Polling** 
 
 After sending the payment request to the PSP, the payment service keeps asking the PSP about the payment status. After several rounds, the PSP finally returns with the status. 
 
@@ -247,25 +264,29 @@ The diagram below shows 5 common tricks to improve API performance.
   <img src="images/api-performance.jpg">
 </p>
 
-Pagination
+#### 1. Pagination
+
+Pagination is the process of separating print or digital content into discrete pages. For print-documents and some online content, pagination also refers to the automated process of adding consecutive numbers to identify the sequential order of pages.
 
 This is a common optimization when the size of the result is large. The results are streaming back to the client to improve the service responsiveness.
 
-Asynchronous Logging
+#### 2. Asynchronous Logging
 
-Synchronous logging deals with the disk for every call and can slow down the system. Asynchronous logging sends logs to a lock-free buffer first and immediately returns. The logs will be flushed to the disk periodically. This significantly reduces the I/O overhead.
+In synchronous logging, the data is directly written to the destination i.e a file or a database. This can slow down the system. 
 
-Caching
+In Asynchronous logging, the data is written to a queue first and then to the destination. Asynchronous logging sends logs to a lock-free buffer first and immediately returns. The logs will be flushed to the disk periodically. This significantly reduces the I/O overhead.
 
-We can cache frequently accessed data into a cache. The client can query the cache first instead of visiting the database directly. If there is a cache miss, the client can query from the database. Caches like Redis store data in memory, so the data access is much faster than the database.
+#### 3. Caching
 
-Payload Compression
+ We can cache frequently accessed data into a cache. The client can query the cache first instead of visiting the database directly. If there is a cache miss, the client can query from the database. Caches like Redis store data in memory, so the data access is much faster than the database.
 
-The requests and responses can be compressed using gzip etc so that the transmitted data size is much smaller. This speeds up the upload and download.
+#### 4. Payload Compression
 
-Connection Pool
+ The requests and responses can be compressed using gzip etc so that the transmitted data size is much smaller. This speeds up the upload and download.
 
-When accessing resources, we often need to load data from the database. Opening the closing db connections adds significant overhead. So we should connect to the db via a pool of open connections. The connection pool is responsible for managing the connection lifecycle.
+#### 5. Connection Pool
+
+ When accessing resources, we often need to load data from the database. Opening the closing db connections adds significant overhead. So we should connect to the db via a pool of open connections. The connection pool is responsible for managing the connection lifecycle.
 
 ### HTTP 1.0 -> HTTP 1.1 -> HTTP 2.0 -> HTTP 3.0 (QUIC)
 
@@ -277,31 +298,23 @@ The diagram below illustrates the key features.
   <img src="images/http3.jpg" />
 </p>
 
-- HTTP 1.0 was finalized and fully documented in 1996. Every request to the same server requires a separate TCP connection.
+- **HTTP 1.0** was finalized and fully documented in 1996. Every request to the same server requires a separate TCP (Transmission Control Protocol) connection.
 
-- HTTP 1.1 was published in 1997. A TCP connection can be left open for reuse (persistent connection), but it doesn’t solve the HOL (head-of-line) blocking issue. 
+- **HTTP 1.1** was published in 1997. A TCP connection can be left open for reuse (persistent connection), but it doesn’t solve the HOL (head-of-line) blocking issue. 
 
-  HOL blocking - when the number of allowed parallel requests in the browser is used up, subsequent requests need to wait for the former ones to complete.
+  **Head-of-line blocking** is a performance-limiting phenomenon that occurs when a line of packets is held up in a queue by a first packet. 
 
-- HTTP 2.0 was published in 2015. It addresses HOL issue through request multiplexing, which eliminates HOL blocking at the application layer, but HOL still exists at the transport (TCP) layer.
+- **HTTP 2.0** was published in 2015. It addresses HOL issue through request multiplexing, which eliminates HOL blocking at the application layer, but HOL still exists at the transport (TCP) layer.
+
+  **Multiplexing** is a way of sending multiple signals or streams of information over a communications link at the same time in the form of a single, complex signal.
 
   As you can see in the diagram, HTTP 2.0 introduced the concept of HTTP “streams”: an abstraction that allows multiplexing different HTTP exchanges onto the same TCP connection. Each stream doesn’t need to be sent in order.
 
-- HTTP 3.0 first draft was published in 2020. It is the proposed successor to HTTP 2.0. It uses QUIC instead of TCP for the underlying transport protocol, thus removing HOL blocking in the transport layer. 
+- **HTTP 3.0** first draft was published in 2020. It is the proposed successor to HTTP 2.0. It uses QUIC (Quick UDP Internet Connections) instead of TCP for the underlying transport protocol, thus removing HOL blocking in the transport layer. 
+
+The User Datagram Protocol, or UDP, is a communication protocol used across the Internet for especially time-sensitive transmissions such as video playback or DNS lookups. It speeds up communications by not formally establishing a connection before data is transferred.
 
 QUIC is based on UDP. It introduces streams as first-class citizens at the transport layer. QUIC streams share the same QUIC connection, so no additional handshakes and slow starts are required to create new ones, but QUIC streams are delivered independently such that in most cases packet loss affecting one stream doesn't affect others.
-
-### SOAP vs REST vs GraphQL vs RPC
-
-The diagram below illustrates the API timeline and API styles comparison.
-
-Over time, different API architectural styles are released. Each of them has its own patterns of standardizing data exchange. 
-
-You can check out the use cases of each style in the diagram.
-
-<p>
-  <img src="images/SOAP vs REST vs GraphQL vs RPC.jpeg" />
-</p>
 
 
 ### Code First vs. API First 
@@ -346,6 +359,8 @@ Server Error (500-599)
 
 ### What does API gateway do? 
 
+**API Gateway:** An API gateway is a data-plane entry point for API calls that represent client requests to target applications and services. It typically performs request processing based on defined policies, including authentication, authorization, access control, SSL/TLS offloading, routing, and load balancing.
+
 The diagram below shows the details. 
 
 <p>
@@ -380,6 +395,10 @@ The diagram below shows typical API designs with a shopping cart example.
 Note that API design is not just URL path design. Most of the time, we need to choose the proper resource names, identifiers, and path patterns. It is equally important to design proper HTTP header fields or to design effective rate-limiting rules within the API gateway. 
 
 ### TCP/IP encapsulation 
+
+(Transmission Control Protocol/Internet Protocol)
+
+**OSI Model:** The Open Systems Interconnection (OSI) model describes seven layers that computer systems use to communicate over a network.
 
 How is data sent over the network? Why do we need so many layers in the OSI model?
 
@@ -428,7 +447,13 @@ A reverse proxy is good for:
 3. Caching static contents
 4. Encrypting and decrypting SSL communications
 
+Nginx is called a reverse proxy because it acts as an intermediary server between clients and backend servers, intercepting responses from the backend servers and forwarding them to the appropriate clients.
+
 ### What are the common load-balancing algorithms?
+
+A load balancer is a software or hardware device that keeps any one server from becoming overloaded. A load balancing algorithm is the logic that a load balancer uses to distribute network traffic between servers (an algorithm is a set of predefined rules).
+
+There are two primary approaches to load balancing. Dynamic load balancing uses algorithms that take into account the current state of each server and distribute traffic accordingly. Static load balancing distributes traffic without making these adjustments. Some static algorithms send an equal amount of traffic to each server in a group, either in a specified order or at random.
 
 The diagram below shows 6 common algorithms. 
 
