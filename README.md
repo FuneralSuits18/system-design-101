@@ -432,7 +432,7 @@ The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 �
   <img src="images/Forward Proxy v.s. Reverse Proxy2x.jpg" style="width: 720px" />
 </p>
 
-A forward proxy is a server that sits between user devices and the internet.
+A forward proxy sits in front of a client and ensures that no origin server ever communicates directly with that specific client.
 
 A forward proxy is commonly used for: 
 
@@ -449,7 +449,7 @@ A reverse proxy is good for:
 3. Caching static contents
 4. Encrypting and decrypting SSL communications
 
-Nginx is called a reverse proxy because it acts as an intermediary server between clients and backend servers, intercepting responses from the backend servers and forwarding them to the appropriate clients.
+Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache.
 
 ### What are the common load-balancing algorithms?
 
