@@ -359,7 +359,9 @@ Server Error (500-599)
 
 ### What does API gateway do? 
 
-**API Gateway:** An API gateway is a data-plane entry point for API calls that represent client requests to target applications and services. It typically performs request processing based on defined policies, including authentication, authorization, access control, SSL/TLS offloading, routing, and load balancing.
+**API Gateway:** An API gateway is an API management tool that sits between a client and a collection of backend services.
+
+An API gateway acts as a reverse proxy to accept all API calls, aggregate the various services required to fulfill them, and return the appropriate result.
 
 The diagram below shows the details. 
 
