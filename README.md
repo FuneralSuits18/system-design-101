@@ -432,7 +432,7 @@ The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 �
   <img src="images/Forward Proxy v.s. Reverse Proxy2x.jpg" style="width: 720px" />
 </p>
 
-A forward proxy sits in front of a client and ensures that no origin server ever communicates directly with that specific client.
+**A forward proxy** sits in front of a client and ensures that no origin server ever communicates directly with that specific client.
 
 A forward proxy is commonly used for: 
 
@@ -440,7 +440,7 @@ A forward proxy is commonly used for:
 2. Circumventing browsing restrictions
 3. Blocking access to certain content
 
-A reverse proxy is a server that accepts a request from the client, forwards the request to web servers, and returns the results to the client as if the proxy server had processed the request.
+**A reverse proxy** is a server that accepts a request from the client, forwards the request to web servers, and returns the results to the client as if the proxy server had processed the request.
 
 A reverse proxy is good for:
 
@@ -453,7 +453,7 @@ Nginx is a web server that can also be used as a reverse proxy, load balancer, m
 
 ### What are the common load-balancing algorithms?
 
-A load balancer is a software or hardware device that keeps any one server from becoming overloaded. A load balancing algorithm is the logic that a load balancer uses to distribute network traffic between servers (an algorithm is a set of predefined rules).
+A load balancer is a software or hardware device that keeps any one server from becoming overloaded. A load balancing algorithm is the logic that a load balancer uses to distribute network traffic between servers (an algorithm is a finite sequence of instructions to solve a problem).
 
 There are two primary approaches to load balancing. Dynamic load balancing uses algorithms that take into account the current state of each server and distribute traffic accordingly. Static load balancing distributes traffic without making these adjustments. Some static algorithms send an equal amount of traffic to each server in a group, either in a specified order or at random.
 
