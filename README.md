@@ -400,6 +400,10 @@ Note that API design is not just URL path design. Most of the time, we need to c
 
 (Transmission Control Protocol/Internet Protocol)
 
+IP finds the destination of messages and TCP has the work to send and receive the messages. IP is the primary way in which network connections are made, and it establishes the basis of the Internet. TCP handles packet ordering or error checking.
+
+On another note, TCP manages the data stream, and HTTP describes what the data in this stream contains.
+
 **OSI Model:** The Open Systems Interconnection (OSI) model describes seven layers that computer systems use to communicate over a network.
 
 How is data sent over the network? Why do we need so many layers in the OSI model?
@@ -508,7 +512,7 @@ scheme:[//authority]path[?query][#fragment]
 
 - URL 
 
-URL stands for Uniform Resource Locator, the key concept of HTTP. It is the address of a unique resource on the web. It can be used with other protocols like FTP and JDBC. 
+URL stands for Uniform Resource Locator, the key concept of HTTP (Hypertext Transfer Protocol). It is the address of a unique resource on the web. It can be used with other protocols like FTP and JDBC. 
 
 - URN 
 
