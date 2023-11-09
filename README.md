@@ -198,6 +198,8 @@ Neither API approach is a silver bullet. Carefully evaluating requirements and t
 
 ### How does gRPC work?
 
+gRPC is a high-performance, open-source framework developed by Google, designed for efficient communication between microservices.
+
 RPC (Remote Procedure Call) is called “**remote**” because it enables communications between remote services when services are deployed to different servers under microservice architecture. From the user’s point of view, it acts like a local function call.
 
 The diagram below illustrates the overall data flow for **gRPC**.
