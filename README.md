@@ -526,6 +526,8 @@ If you would like to learn more detail on the subject, I would recommend [W3C’
 
 ### CI/CD Pipeline Explained in Simple Terms
 
+Continuous Integration and Continuous Delivery (CI/CD) is a software development approach that aims to improve the speed, efficiency, and reliability of software delivery. This approach involves frequent code integration, automated testing, and continuous deployment of software changes to production.
+
 <p>
   <img src="images/ci-cd-pipeline.jpg" style="width: 680px" />
 </p>
