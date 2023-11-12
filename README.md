@@ -588,8 +588,10 @@ These architecture patterns are among the most commonly used in app development,
 
 - MVC, the oldest pattern, dates back almost 50 years 
 - Every pattern has a "view" (V) responsible for displaying content and receiving user input 
-- Most patterns include a "model" (M) to manage business data 
+- Most patterns include a "model" (M) to handle data logic and interact with the database
 - "Controller," "presenter," and "view-model" are translators that mediate between the view and the model ("entity" in the VIPER pattern)
+
+Controller handles request flow 
 
 ### 18 Key Design Patterns Every Developer Should Know
 
@@ -599,24 +601,24 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
   <img src="images/18-oo-patterns.png" />
 </p>
 
-- Abstract Factory: Family Creator - Makes groups of related items. 
-- Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate. 
-- Prototype: Clone Maker - Creates copies of fully prepared examples. 
-- Singleton: One and Only - A special class with just one instance. 
-- Adapter: Universal Plug - Connects things with different interfaces. 
-- Bridge: Function Connector - Links how an object works to what it does. 
-- Composite: Tree Builder - Forms tree-like structures of simple and complex parts. 
-- Decorator: Customizer - Adds features to objects without changing their core. 
-- Facade: One-Stop-Shop - Represents a whole system with a single, simplified interface. 
-- Flyweight: Space Saver - Shares small, reusable items efficiently. 
-- Proxy: Stand-In Actor - Represents another object, controlling access or actions. 
-- Chain of Responsibility: Request Relay - Passes a request through a chain of objects until handled. 
-- Command: Task Wrapper - Turns a request into an object, ready for action. 
-- Iterator: Collection Explorer - Accesses elements in a collection one by one. 
-- Mediator: Communication Hub - Simplifies interactions between different classes. 
-- Memento: Time Capsule - Captures and restores an object's state. 
-- Observer: News Broadcaster - Notifies classes about changes in other objects. 
-- Visitor: Skillful Guest - Adds new operations to a class without altering it.
+1. Abstract Factory: Family Creator - Makes groups of related items. 
+2. Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate.
+3. Prototype: Clone Maker - Creates copies of fully prepared examples. 
+4. Singleton: One and Only - A special class with just one instance. 
+5. Adapter: Universal Plug - Connects things with different interfaces. 
+6. Bridge: Function Connector - Links how an object works to what it does. 
+7. Composite: Tree Builder - Forms tree-like structures of simple and complex parts. 
+8. Decorator: Customizer - Adds features to objects without changing their core. 
+9. Facade: One-Stop-Shop - Represents a whole system with a single, simplified interface. 
+10. Flyweight: Space Saver - Shares small, reusable items efficiently. 
+11. Proxy: Stand-In Actor - Represents another object, controlling access or actions. 
+12. Chain of Responsibility: Request Relay - Passes a request through a chain of objects until handled. 
+13. Command: Task Wrapper - Turns a request into an object, ready for action. 
+14. Iterator: Collection Explorer - Accesses elements in a collection one by one. 
+15. Mediator: Communication Hub - Simplifies interactions between different classes. 
+16. Memento: Time Capsule - Captures and restores an object's state. 
+17. Observer: News Broadcaster - Notifies classes about changes in other objects. 
+18.Visitor: Skillful Guest - Adds new operations to a class without altering it.
 
 ## Database
 
