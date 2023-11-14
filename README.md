@@ -579,6 +579,25 @@ Incident report: Incidents are dispatched according to priority, and PagerDuty i
 
 ## Architecture patterns
 
+### 5 Most Used Architecture Patterns
+
+1. **Layered Architecture:** Seperates components into distinct layers. Primary goal of this architecture is to promote separation so that changes in one layer don't negatively impact others. This structure provides abstraction and encapsulation with each layer having a distinct responsibility. There are typically,
+    1. Presentation Layer
+    2. Business Layer
+    3. Persistence Layer
+    4. Database Layer
+    
+    E.g. MVC, MVP etc.
+2. **Event-Driven Architecture:** This pattern promotes the production and consumption of events between loosely-coupled software components and services. Components broadcast events when something notable happens, and other components subscribe to specific events they are interested in. This allows for highly decoupled architectures. Eg. Command Query Responsibily Segregation (CQRS).
+3. **Microkernel Architecture:** Separates core system functionalities into a small microkernel and extend functionalities into add-ons and plug-ins. Eg. In operating systems, a microkernel might oversee vital tasks while offloading other system functions to external components. If add-ons encounter an issue, the core system remains stable and unaffected.
+4. **Monolithic Architecture:** Sees all components of the application - from data access and business logic to the user interface -bundled together into a single codebase and run as a single unit. This approach simplifies development and deployment, making it a go-to for many startups and smaller applications.
+5. **Microservices:** Divides an application into a collection of small, loosely coupled services. Each service implements specific business capabilites, contains its own data model and communicates via APIs. It allows for rapid innovation. The trade-off is the added complexity in managing inter-service communication and maintaining data consistency. Eg. Netflix tech stack.
+6. **Modular Monolith:** This approach retains the benifits of a single deplyable unit but emphasizes clear modular boundaries within the codebase. This allows for easier maintenance and scalability. It is a middle ground which offers the simplicity of a monolith while paving the way for potential future transitions to architectures like microservices.
+
+Regardless of the approach, many successful platforms start with a monolithic or modular monolithic structure before considering more distributed architectures. Eg. Stack Overflow, Shopify etc.
+
+The right choice always depends on our specifi challenges, requirements, and contexts.
+
 ### MVC, MVP, MVVM, MVVM-C, and VIPER
 These architecture patterns are among the most commonly used in app development, whether on iOS or Android platforms. Developers have introduced them to overcome the limitations of earlier patterns. So, how do they differ? 
 
