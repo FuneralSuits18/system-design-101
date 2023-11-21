@@ -637,7 +637,7 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
 15. Mediator: Communication Hub - Simplifies interactions between different classes. 
 16. Memento: Time Capsule - Captures and restores an object's state. 
 17. Observer: News Broadcaster - Notifies classes about changes in other objects. 
-18.Visitor: Skillful Guest - Adds new operations to a class without altering it.
+18. Visitor: Skillful Guest - Adds new operations to a class without altering it.
 
 ## Database
 
